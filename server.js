@@ -2,6 +2,7 @@ const Moralis = require('moralis').default;
 
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 
 const { EvmChain } = require('@moralisweb3/common-evm-utils');
 
@@ -16,7 +17,7 @@ app.use(
     })
 );
 
-const MORALIS_API_KEY = 'B23o2RvkbaPp28e6TardbHQFyed6aXS7fBMECKjLUD7UCQvrGZeg8FW52Ac8gHSF';
+const MORALIS_API_KEY = process.env.MORALIS_APIKEY;
 
 app.get('/balances/:address', async (req, res) => {
     try {
